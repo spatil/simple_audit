@@ -2,6 +2,8 @@ module SimpleAudit #:nodoc:
   
   # Changes of the audited models will be stored here.
   class Audit < ActiveRecord::Base
+    attr_accessible :user, :username, :action, :change_log
+
     belongs_to :auditable,  :polymorphic => true
     belongs_to :user,       :polymorphic => true
     serialize  :change_log
